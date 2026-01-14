@@ -68,7 +68,6 @@ drift <- detectDrift(
   reference_file = "MAL05_test.txt",
   test_start = "2025-08-22 14:53",
   test_end = "2025-08-22 14:58",
-  tz = 0,
   threshold_drift = 0.4
 )
 }
