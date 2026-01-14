@@ -1,0 +1,26 @@
+Package: rasqas
+Title: Read, Assemble, Standardize, Qualify and Analyze data from autonomous Sensors
+Version: 0.0.0.9000
+Authors@R: 
+    person( "Rosalie", "Bruel",
+      email = "rosalie.bruel@ofb.gouv.fr",
+      role = c("aut", "cre"), comment = c(ORCID = "0000-0001-8351-7539"))
+Description: Functions to read, assemble, and standardize high-frequency data
+    collected by autonomous environmental sensors. The package currently
+    provides functions to ingest heterogeneous text and CSV files produced
+    by multiple sensor manufacturers, automatically detect date-time formats,
+    clean and harmonize measurements, and assess sensor drift compared to a 
+    reference sensor. Future developments will extend the package with 
+    additional methods for data qualification, analysis, and visualization of 
+    sensor time series.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Suggests: 
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Depends: 
+    R (>= 3.5)
+LazyData: true
