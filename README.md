@@ -1,5 +1,6 @@
-
 # rasqas: Read, Assemble, Standardize, Qualify and Analyze data from autonomous Sensors
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19006490.svg)](https://doi.org/10.5281/zenodo.19006490)
 
 <!-- badges: start -->
 <img align="right" width="612" height="346" alt="image" src="https://github.com/user-attachments/assets/936cf3c0-b8ff-408c-ac41-c643569e5b3f" />
