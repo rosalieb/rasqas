@@ -35,7 +35,7 @@
 #' }
 #'
 #' @examples
-#' drift <- detectDrift(
+#' drift <- detect_drift(
 #'   folderpath = "monitoring/20250802/sensor_drift_test",
 #'   reference_file = "MAL05_test.txt",
 #'   test_start = "2025-08-22 14:53",
@@ -43,13 +43,13 @@
 #'   threshold_drift = 0.4
 #' )
 #' @export
-detectDrift <- function(folderpath, reference_file = NULL, test_start, test_end, threshold_drift = 0.4,
+detect_drift <- function(folderpath, reference_file = NULL, test_start, test_end, threshold_drift = 0.4,
                         patterns2searchfor = NULL, patterns2exclude = c("00_drift_results","@", "pres_air|pres_eau|pres.txt|pres_cote|pression|Pres.csv", "aff.txt", "status.txt", "lire.txt", "Sorties.txt", "aff_quinson", "allos CR.txt", "00_ALIRE.txt"),
                         writeOutput = TRUE, out_dir = NULL) {
   ...
 }
 
-detectDrift <- function(folderpath, reference_file = NULL, test_start, test_end, tz = 0, threshold_drift = 0.4,
+detect_drift <- function(folderpath, reference_file = NULL, test_start, test_end, tz = 0, threshold_drift = 0.4,
                         patterns2searchfor = NULL, patterns2exclude = c("00_drift_results","@", "pres_air|pres_eau|pres.txt|pres_cote|pression|Pres.csv", "aff.txt", "status.txt", "lire.txt", "Sorties.txt", "aff_quinson", "allos CR.txt", "00_ALIRE.txt"),
                         writeOutput = TRUE, out_dir = NULL) {
   # Get packages
@@ -150,3 +150,6 @@ detectDrift <- function(folderpath, reference_file = NULL, test_start, test_end,
 
   return(read_data)
   }
+
+# Ensure compatibility with former function name
+detectDrift <- detect_drift

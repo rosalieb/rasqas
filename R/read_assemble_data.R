@@ -37,18 +37,18 @@
 #'
 #' @examples
 #' \dontrun{
-#' data <- readAssembleData(
+#' data <- read_assemble_data(
 #'   folderpath = "monitoring/20250802/sensor_data",
 #'   patterns2searchfor = "MAL05",
 #'   patterns2exclude = c("status", "aff")
 #' )
 #' }
 #' @export
-readAssembleData <- function(folderpath, patterns2searchfor = NULL, patterns2exclude = c("00_drift_results","@", "pres_air|pres_eau|pres.txt|pres_cote|pression|Pres.csv", "aff.txt", "status.txt", "lire.txt", "Sorties.txt", "aff_quinson", "allos CR.txt", "00_ALIRE.txt")) {
+read_assemble_data <- function(folderpath, patterns2searchfor = NULL, patterns2exclude = c("00_drift_results","@", "pres_air|pres_eau|pres.txt|pres_cote|pression|Pres.csv", "aff.txt", "status.txt", "lire.txt", "Sorties.txt", "aff_quinson", "allos CR.txt", "00_ALIRE.txt")) {
   ...
 }
 
-readAssembleData <- function(folderpath, patterns2searchfor = NULL, patterns2exclude = c("00_drift_results","@", "pres_air|pres_eau|pres.txt|pres_cote|pression|Pres.csv", "aff.txt", "status.txt", "lire.txt", "Sorties.txt", "aff_quinson", "allos CR.txt", "00_ALIRE.txt"),
+read_assemble_data <- function(folderpath, patterns2searchfor = NULL, patterns2exclude = c("00_drift_results","@", "pres_air|pres_eau|pres.txt|pres_cote|pression|Pres.csv", "aff.txt", "status.txt", "lire.txt", "Sorties.txt", "aff_quinson", "allos CR.txt", "00_ALIRE.txt"),
                              language = "fr") {
 
   # 1. Preparation -------------------------------------------------------------
@@ -58,6 +58,7 @@ readAssembleData <- function(folderpath, patterns2searchfor = NULL, patterns2exc
   # or checked using DESCRIPTION / Imports
   suppressMessages(suppressWarnings(require(dplyr)))
   suppressMessages(suppressWarnings(require(lubridate)))
+  suppressMessages(suppressWarnings(require(stringr)))
 
   # Date-time parsing orders used to automatically detect multiple formats
   custom_orders = c("d/m/y H:M:S", "y/m/d H:M:S","d-m-y H:M:S", "m/d/Y H:M:S","m/d/y H:M:S","d/m/Y H:M:S",
@@ -482,7 +483,7 @@ readAssembleData <- function(folderpath, patterns2searchfor = NULL, patterns2exc
       if(length(grep(pattern = "pres|saturation|%|mg/l", names(list_data[[j]]), ignore.case = TRUE))>=1) {
         whichcoltemp = which(grepl(pattern = "temp", names(list_data[[j]]), ignore.case = TRUE))
         whichcolpres = which(grepl(pattern = "pres", names(list_data[[j]]), ignore.case = TRUE))
-        whichcolo2concentration = which(grepl(pattern = "oxygen|mg/l|mg.l", names(list_data[[j]]), ignore.case = TRUE) & grepl(pattern = "saturation", names(list_data[[j]]), ignore.case = TRUE))
+        whichcolo2concentration = which(grepl(pattern = "OD conc|oxygen|mg/l|mg.l", names(list_data[[j]]), ignore.case = TRUE) & grepl(pattern = "saturation", names(list_data[[j]]), ignore.case = TRUE))
         whichcolo2sat = which(grepl(pattern = "saturation|%", names(list_data[[j]]), ignore.case = TRUE))
 
         if(length(whichcoltemp) != 1) stop("Did not find temperature column - check code.") else {
@@ -592,3 +593,5 @@ readAssembleData <- function(folderpath, patterns2searchfor = NULL, patterns2exc
   ))
 }
 
+# Ensure compatibility with former function name
+readAssembleData <- read_assemble_data

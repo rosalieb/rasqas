@@ -30,10 +30,10 @@
 #' @param overwrite Logical. If `FALSE` (default), the function will stop if the
 #'   output file already exists. If `TRUE`, the existing file will be overwritten.
 #' @examples
-#' correctStartDatetimeMinidot(file = "/Users/robruel/Desktop/Travail/ScriptR/RNT/Input/Data/SCL06/sonde/20250724/SCL06_00500_O2.TXT",
+#' correct_start_datetime_minidot(file = "/Users/robruel/Desktop/Travail/ScriptR/RNT/Input/Data/SCL06/sonde/20250724/SCL06_00500_O2.TXT",
 #'     lagdatetime = c("2024-04-25 10:06:47", "2025-07-24 12:05:47"), overwrite = TRUE)
 #' @examples
-#' correctStartDatetimeMinidot(file = "/Users/robruel/Desktop/Travail/ScriptR/RNT/Input/Data/SCL06/sonde/20250724/SCL06_00070_O2.TXT",
+#' correct_start_datetime_minidot(file = "/Users/robruel/Desktop/Travail/ScriptR/RNT/Input/Data/SCL06/sonde/20250724/SCL06_00070_O2.TXT",
 #' lagdatetime = c("2023-06-30 22:18:17", "2025-07-24 11:55:17"),
 #' overwrite = TRUE)
 #' @export
@@ -41,7 +41,7 @@ detectDrift <- function(file, firstdatetime = NULL, lagdatetime = NULL, nskip = 
   ...
 }
 
-correctStartDatetimeMinidot <- function(file, firstdatetime = NULL, lagdatetime = NULL, nskip = 9, append = "_datetimecorrected", overwrite = FALSE) {
+correct_start_datetime_minidot <- function(file, firstdatetime = NULL, lagdatetime = NULL, nskip = 9, append = "_datetimecorrected", overwrite = FALSE) {
   library(tools)
   library(dplyr)
 
@@ -138,3 +138,5 @@ correctStartDatetimeMinidot <- function(file, firstdatetime = NULL, lagdatetime 
 
   }
 
+# Ensure compatibility with former function name
+correctStartDatetimeMinidot <- correct_start_datetime_minidot
