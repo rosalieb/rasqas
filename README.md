@@ -3,12 +3,12 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19006490.svg)](https://doi.org/10.5281/zenodo.19006490)
 
 <!-- badges: start -->
-<img align="right" width="612" height="346" alt="image" src="https://github.com/user-attachments/assets/936cf3c0-b8ff-408c-ac41-c643569e5b3f" />
+<img align="right" width="408" height="230" alt="image" src="https://github.com/user-attachments/assets/936cf3c0-b8ff-408c-ac41-c643569e5b3f" />
 <!-- badges: end -->
 
 Functions to read, assemble, and standardize high-frequency data collected by autonomous environmental sensors. The package currently provides functions to ingest heterogeneous text and CSV files produced by multiple sensor manufacturers, automatically detect date-time formats, clean and harmonize measurements, and assess sensor drift compared to a reference sensor. 
 
-_rasqas_ is still at the embryonal stage... Future developments will extend the package with additional methods for data qualification, analysis, and visualization of sensor time series.
+_rasqas_ is still at the embryonal stage... Future developments will extend the package with additional methods for data qualification, analysis, and visualization of sensor time series, and will include a proper documentation. 
 
 ## Installation
 
