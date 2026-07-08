@@ -16,7 +16,7 @@ You can install the development version of rasqas like so:
 
 ``` r
 install.packages("devtools")
-devtools::install_github(rosalieb/rasqas)
+devtools::install_github("rosalieb/rasqas")
 ```
 
 ## Example
