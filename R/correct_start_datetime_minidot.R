@@ -37,11 +37,12 @@
 #' lagdatetime = c("2023-06-30 22:18:17", "2025-07-24 11:55:17"),
 #' overwrite = TRUE)
 #' @export
-detectDrift <- function(file, firstdatetime = NULL, lagdatetime = NULL, nskip = 9, append = "_datetimecorrected", overwrite = FALSE) {
-  ...
-}
-
-correct_start_datetime_minidot <- function(file, firstdatetime = NULL, lagdatetime = NULL, nskip = 9, append = "_datetimecorrected", overwrite = FALSE) {
+correct_start_datetime_minidot <- function(file,
+                                           firstdatetime = NULL,
+                                           lagdatetime = NULL,
+                                           nskip = 9,
+                                           append = "_datetimecorrected",
+                                           overwrite = FALSE) {
   library(tools)
   library(dplyr)
 

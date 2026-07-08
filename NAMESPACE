@@ -3,7 +3,7 @@
 export(compute_GDD)
 export(compute_statistic)
 export(compute_threshold_exceedance)
-export(detectDrift)
+export(correct_start_datetime_minidot)
 export(detect_drift)
 export(find_date_threshold)
 export(get_day_GDD_threshold)
