@@ -23,3 +23,12 @@ devtools::install_github(rosalieb/rasqas)
 
 Coming soon...
 
+## Contributing
+
+Contributions are always welcome!
+
+If you notice an error, have a question, or would like to suggest an improvement, please open an issue in this repository. This helps me track discussions and prioritize future work.
+
+If you'd like to contribute directly, whether by adding a new function, improving the documentation, fixing a bug, or enhancing existing features, please submit a pull request. Any contributions is appreciated.
+
+If you prefer to get in touch directly or would like to discuss an idea before opening an issue or pull request, feel free to reach out by email at rosalie.bruel [at] ofb.gouv.fr.
