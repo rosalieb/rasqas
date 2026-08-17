@@ -15,8 +15,13 @@ _rasqas_ is still at the embryonal stage... Future developments will extend the 
 You can install the development version of rasqas like so:
 
 ``` r
+# Deprecated version — working for me
 install.packages("devtools")
 devtools::install_github("rosalieb/rasqas")
+
+# If the above does not work, try:
+install.packages("pak")
+pak::pak("rosalieb/rasqas")
 ```
 
 ## Example
