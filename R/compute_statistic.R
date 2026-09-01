@@ -75,9 +75,11 @@ compute_statistic <- function(df,
   }
 
   # ---- Data preparation ----
+  year2filter = year # Renaming because otherwise the filter doesn't work
+
   df[[value_column]] <- as.numeric(df[[value_column]])
 
-  data_year <- dplyr::filter(df, lubridate::year(df[[date_column]]) == year)
+  data_year <- dplyr::filter(df, lubridate::year(df[[date_column]]) %in% year2filter)
   data_period <- data_year[, c(date_column, value_column)]
 
   data_period <- dplyr::filter(
@@ -141,6 +143,8 @@ compute_statistic <- function(df,
       result,
       data.frame(
         statistic = whichstat,
+        period = ifelse(length(year2filter) == 1, year2filter, paste0(min(year2filter, na.rm = TRUE), "-", max(year2filter, na.rm = TRUE))),
+        n_year = length(year2filter),
         value = value,
         date = date_value,
         threshold_data_availability = min_data_threshold,
