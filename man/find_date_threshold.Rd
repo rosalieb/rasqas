@@ -54,7 +54,7 @@ must exceed \code{threshold + confirmation_margin} (\code{"above"}) or be below
 \code{threshold - confirmation_margin} (\code{"below"}).}
 
 \item{error_tolerated}{Numeric between 0 and 1. Proportion of values within the
-duration that must satisfy the threshold condition (default = 1).}
+duration that must satisfy the threshold condition (default = 1, i.e., all of the data must satisfy the condition).}
 
 \item{absolute_value}{Logical. If TRUE, uses absolute confirmation_margin.}
 

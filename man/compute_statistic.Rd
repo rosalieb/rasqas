@@ -26,7 +26,7 @@ compute_statistic(
 
 \item{value_column}{Column name or index containing temperature values.}
 
-\item{year}{Integer. Year to filter the data.}
+\item{year}{Integer or vector of integer. Year(s) to filter the data. E.g., 1990-2019.}
 
 \item{start_doy}{Integer. First Julian day of the analysis period.}
 
