@@ -22,9 +22,9 @@
 #' Rosalie Bruel
 #'
 #' @param df_ref Reference dataset (e.g., climatology), must contain:
-#'   yday, mean_temp_surf, sd_temp_surf
+#'   yday, mean_value1, sd_value1
 #' @param df_anom Dataset for the anomalous year, must contain:
-#'   date, yday, Temp_surf
+#'   date, yday, value1
 #' @param year_anom Numeric. Year of the anomalous dataset
 #' @param indicators Character vector specifying which indicators to plot
 #' @param recovery_ref Data.frame with recovery day for reference (must contain yday)
@@ -68,12 +68,12 @@ plot_lake_indicators <- function(
 
     geom_ribbon(
       aes(x = yday,
-          ymin = mean_temp_surf - sd_temp_surf,
-          ymax = mean_temp_surf + sd_temp_surf),
+          ymin = mean_value1 - sd_value1,
+          ymax = mean_value1 + sd_value1),
       fill = "lightgrey", alpha = 0.5
     ) +
 
-    geom_line(aes(yday, mean_temp_surf, color = "Average temperature"),
+    geom_line(aes(yday, mean_value1, color = "Average temperature"),
               linewidth = 0.5)
 
   # ---- GDD ----
@@ -89,7 +89,7 @@ plot_lake_indicators <- function(
     p <- p +
       geom_ribbon(
         data = df_gdd,
-        aes(x = yday, ymin = 4, ymax = Temp_surf, fill = "gdd_base"),
+        aes(x = yday, ymin = 4, ymax = value1, fill = "gdd_base"),
         alpha = 0.2
       )
   }
@@ -101,14 +101,14 @@ plot_lake_indicators <- function(
       geom_line(
         data = df_ref %>%
           dplyr::filter(yday >= 182 + 365 & yday <= 243 + 365),
-        aes(yday, mean_temp_surf, color = "summer_ref"),
+        aes(yday, mean_value1, color = "summer_ref"),
         linewidth = 2
       ) +
       geom_line(
         data = df_anom %>%
           dplyr::filter(date >= as.Date(paste0(year_anom, "-07-01")),
                         date <= as.Date(paste0(year_anom, "-08-31"))),
-        aes(yday, Temp_surf, color = "summer_anom"),
+        aes(yday, value1, color = "summer_anom"),
         linewidth = 2
       )
   }
@@ -119,14 +119,14 @@ plot_lake_indicators <- function(
     p <- p +
       geom_point(
         data = df_ref %>%
-          dplyr::filter(mean_temp_surf == max(mean_temp_surf, na.rm = TRUE)),
-        aes(yday, mean_temp_surf, shape = "tmax_ref"),
+          dplyr::filter(mean_value1 == max(mean_value1, na.rm = TRUE)),
+        aes(yday, mean_value1, shape = "tmax_ref"),
         fill = col_ref, size = 3
       ) +
       geom_point(
         data = df_anom %>%
-          dplyr::filter(Temp_surf == max(Temp_surf, na.rm = TRUE)),
-        aes(yday, Temp_surf, shape = "tmax_anom"),
+          dplyr::filter(value1 == max(value1, na.rm = TRUE)),
+        aes(yday, value1, shape = "tmax_anom"),
         fill = col_anom, size = 3
       )
   }
@@ -152,7 +152,7 @@ plot_lake_indicators <- function(
   p <- p +
     geom_line(
       data = df_anom,
-      aes(yday, Temp_surf, color = "anom"),
+      aes(yday, value1, color = "anom"),
       linewidth = 0.8
     )
 

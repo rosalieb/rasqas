@@ -55,7 +55,7 @@
 #'   must exceed `threshold + confirmation_margin` (`"above"`) or be below
 #'   `threshold - confirmation_margin` (`"below"`).
 #' @param error_tolerated Numeric between 0 and 1. Proportion of values within the
-#'   duration that must satisfy the threshold condition (default = 1).
+#'   duration that must satisfy the threshold condition (default = 1, i.e., all of the data must satisfy the condition).
 #' @param absolute_value Logical. If TRUE, uses absolute confirmation_margin.
 #' @param min_data_availability Numeric between 0 and 1. Minimum proportion of
 #'   expected days with observations required to compute the exceedance duration.

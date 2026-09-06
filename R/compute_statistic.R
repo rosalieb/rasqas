@@ -19,7 +19,7 @@
 #' @param date_column Column name or index containing date-time values
 #'   (expected format: "yyyy-mm-dd hh:mm").
 #' @param value_column Column name or index containing temperature values.
-#' @param year Integer. Year to filter the data.
+#' @param year Integer or vector of integer. Year(s) to filter the data. E.g., 1990-2019.
 #' @param start_doy Integer. First Julian day of the analysis period.
 #' @param end_doy Integer. Last Julian day of the analysis period.
 #' @param statistic Character. One of "min", "max", "mean", "median".
