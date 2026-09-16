@@ -75,7 +75,7 @@ compute_statistic <- function(df,
   }
 
   # ---- Data preparation ----
-  year2filter = year # Renaming because otherwise the filter doesn't work
+  year2filter = match.arg(year) # Renaming because otherwise the filter doesn't work
 
   df[[value_column]] <- as.numeric(df[[value_column]])
 

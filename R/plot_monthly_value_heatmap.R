@@ -19,8 +19,6 @@
 #' function.
 #' @param nobs_col Column name for number of observations (character).
 #' @param min_obs Minimum number of observations required (default = 25).
-#' @param depth_breaks Numeric vector defining depth intervals
-#' (e.g. c(0, 10, 30) → 0–10, 10–30, 30–max).
 #' @param depth_breaks Numeric vector for layer mode
 #' (e.g. c(0, 10, 30) → 0–10, 10–30, 30–max).
 #' @param depth_values Numeric vector for sensor mode (optional)
@@ -99,7 +97,8 @@ plot_monthly_value_heatmap <- function(df,
 
     # LAYER MODE
     max_depth <- max(data$depth, na.rm = TRUE)
-    depth_breaks <- sort(unique(c(depth_breaks, max_depth)))
+    depth_breaks <- depth_breaks[depth_breaks <= max_depth]
+    depth_breaks <- sort(unique(c(0, depth_breaks, max_depth)))
 
     labels <- paste0(head(depth_breaks, -1), "-", tail(depth_breaks, -1), " m")
 
@@ -110,11 +109,12 @@ plot_monthly_value_heatmap <- function(df,
     }
 
     data <- data %>%
-      mutate(depth_cat = cut(depth,
+      dplyr::mutate(depth_cat = cut(depth,
                              breaks = depth_breaks,
                              labels = labels,
                              include.lowest = TRUE,
-                             right = FALSE))
+                             right = FALSE)) %>%
+      dplyr::filter(!is.na(depth_cat))
   }
 
   # Aggregate
